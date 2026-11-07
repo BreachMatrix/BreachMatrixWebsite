@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://breachmatrix.io/sitemap.xml
