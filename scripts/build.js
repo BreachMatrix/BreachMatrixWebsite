@@ -20,6 +20,7 @@ const PRODUCTION_FILES = [
   'index.html',
   'about.html',
   'products.html',
+  'kraft.html',
   'works.html',
   'service.html',
   'styles.css',
@@ -84,6 +85,11 @@ function generateSitemapXml() {
   </url>
   <url>
     <loc>https://breachmatrix.io/products.html</loc>
+    <lastmod>${date}</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://breachmatrix.io/kraft.html</loc>
     <lastmod>${date}</lastmod>
     <priority>0.8</priority>
   </url>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KRAFT — WishSomeoneCloseToYou | BREACHMATRIX</title>
+  <meta name="description"
+    content="Explore WishSomeoneCloseToYou, KRAFT's personalized birthday experience for creating private, animated celebration websites in minutes.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0c'/><circle cx='50' cy='50' r='30' fill='%23d4ff00'/></svg>">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .kraft-page {
+      background: #08090d;
+      color: #f8fafc;
+      min-height: 100vh;
+    }
+
+    .kraft-nav {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 1.5rem 2.5rem;
+    }
+
+    .kraft-brand {
+      color: #f8fafc;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .kraft-nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .kraft-nav-links a,
+    .kraft-button {
+      border: 1px solid rgba(212, 255, 0, 0.35);
+      color: #f8fafc;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      padding: 0.7rem 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .kraft-button {
+      background: var(--color-lime);
+      border-color: var(--color-lime);
+      color: #000000;
+      display: inline-block;
+      font-weight: 700;
+    }
+
+    .kraft-nav-links .kraft-button {
+      color: #000000;
+    }
+
+    .kraft-hero,
+    .kraft-section {
+      margin: 0 auto;
+      max-width: 1280px;
+      padding: 5rem 2.5rem;
+    }
+
+    .kraft-kicker {
+      color: var(--color-lime);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .kraft-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 0.9;
+      margin: 1rem 0 1.5rem;
+      max-width: 900px;
+      text-transform: uppercase;
+    }
+
+    .kraft-hero h1 span {
+      color: var(--color-lime);
+    }
+
+    .kraft-lead {
+      color: #a1a1aa;
+      font-family: var(--font-body);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+
+    .kraft-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .kraft-outline-button {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #f8fafc;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      padding: 0.8rem 1.1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .kraft-section {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .kraft-section-heading {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 0.8fr 1.2fr;
+      margin-bottom: 3rem;
+    }
+
+    .kraft-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: 0.95;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .kraft-section-copy {
+      color: #a1a1aa;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .kraft-steps {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .kraft-step {
+      background: #0a0e17;
+      border: 1px solid rgba(16, 185, 129, 0.24);
+      padding: 1.5rem;
+    }
+
+    .kraft-step-number {
+      color: var(--color-lime);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+
+    .kraft-step h3 {
+      color: #f8fafc;
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.7rem;
+    }
+
+    .kraft-step p {
+      color: #94a3b8;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .kraft-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .kraft-gallery figure {
+      background: #0a0e17;
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      border-radius: 12px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      cursor: zoom-in;
+      margin: 0 0 34vh;
+      overflow: hidden;
+      padding: 0.6rem;
+      position: sticky;
+      top: 7rem;
+      transform: rotate(var(--kraft-tilt, 0deg));
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .kraft-gallery figure.kraft-stack-hidden {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .kraft-gallery figure:nth-child(2) { --kraft-tilt: 0.45deg; }
+    .kraft-gallery figure:nth-child(3) { --kraft-tilt: -0.35deg; }
+    .kraft-gallery figure:nth-child(4) { --kraft-tilt: 0.3deg; }
+    .kraft-gallery figure:nth-child(5) { --kraft-tilt: -0.25deg; }
+    .kraft-gallery figure:nth-child(6) { --kraft-tilt: 0.4deg; }
+    .kraft-gallery figure:nth-child(7) { --kraft-tilt: -0.3deg; }
+
+    .kraft-gallery figure:hover {
+      border-color: rgba(16, 185, 129, 0.7);
+      box-shadow: 0 28px 80px rgba(16, 185, 129, 0.12), 0 24px 70px rgba(0, 0, 0, 0.55);
+      transform: rotate(0deg) translateY(-4px);
+    }
+
+    .kraft-gallery img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+
+    .kraft-gallery figcaption {
+      color: #94a3b8;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.8rem 0.4rem 0.3rem;
+      text-transform: uppercase;
+    }
+
+    .kraft-lightbox {
+      align-items: center;
+      background: rgba(3, 5, 9, 0.96);
+      display: none;
+      inset: 0;
+      justify-content: center;
+      padding: 2rem;
+      position: fixed;
+      z-index: 100000;
+    }
+
+    .kraft-lightbox.is-open {
+      display: flex;
+    }
+
+    .kraft-lightbox-image {
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      box-shadow: 0 25px 90px rgba(0, 0, 0, 0.8);
+      max-height: 88vh;
+      max-width: min(94vw, 1280px);
+      object-fit: contain;
+    }
+
+    .kraft-lightbox-close {
+      background: #0a0e17;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #f8fafc;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      padding: 0.65rem 0.9rem;
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+    }
+
+    .kraft-lightbox-caption {
+      bottom: 1.5rem;
+      color: #94a3b8;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      left: 0;
+      letter-spacing: 0.08em;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .kraft-final {
+      align-items: center;
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      .kraft-nav,
+      .kraft-hero,
+      .kraft-section {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+
+      .kraft-nav-links a:first-child {
+        display: none;
+      }
+
+      .kraft-section-heading,
+      .kraft-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .kraft-gallery figure {
+        margin-bottom: 18vh;
+        top: 5.5rem;
+      }
+
+      .kraft-final {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .kraft-lightbox {
+        padding: 1rem;
+      }
+
+      .kraft-lightbox-close {
+        right: 1rem;
+        top: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="kraft-page">
+  <header class="kraft-nav">
+    <a class="kraft-brand" href="index.html">BreachMatrix / KRAFT</a>
+    <nav class="kraft-nav-links" aria-label="KRAFT navigation">
+      <a href="products.html">Products</a>
+      <a class="kraft-button" href="http://wishsomeoneclosetoyou.netlify.app/" target="_blank"
+        rel="noopener noreferrer">Open live app</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="kraft-hero">
+      <div class="kraft-kicker">KRAFT / WISHSOMEONECLOSETOYOU</div>
+      <h1>Make a moment<br><span>worth sharing.</span></h1>
+      <p class="kraft-lead">
+        WishSomeoneCloseToYou turns a birthday message into a private, interactive celebration website.
+        Choose a visual style, add personal memories, record a message, and share one beautiful link with someone special.
+      </p>
+      <div class="kraft-hero-actions">
+        <a class="kraft-button" href="http://wishsomeoneclosetoyou.netlify.app/" target="_blank"
+          rel="noopener noreferrer">Create a surprise &rarr;</a>
+        <a class="kraft-outline-button" href="#how-it-works">See how it works</a>
+      </div>
+    </section>
+
+    <section class="kraft-section" id="how-it-works">
+      <div class="kraft-section-heading">
+        <h2>Six steps.<br>One feeling.</h2>
+        <p class="kraft-section-copy">
+          KRAFT keeps the creative process simple while making the final experience feel deeply personal.
+          Add the details that matter, preview every scene, and launch a private celebration link without design tools.
+        </p>
+      </div>
+      <div class="kraft-steps">
+        <article class="kraft-step"><span class="kraft-step-number">01 / DEDICATION</span><h3>Start with their story</h3><p>Add the birthday star, your name, a personal dedication, and a portrait photo.</p></article>
+        <article class="kraft-step"><span class="kraft-step-number">02 / SOUNDTRACK</span><h3>Set the mood</h3><p>Choose an acoustic soundtrack that gives the celebration its own emotional rhythm.</p></article>
+        <article class="kraft-step"><span class="kraft-step-number">03 / SPOTLIGHT REEL</span><h3>Pick a visual moment</h3><p>Select an animated reel template that brings their photo into the spotlight.</p></article>
+        <article class="kraft-step"><span class="kraft-step-number">04 / VIDEO</span><h3>Add your voice</h3><p>Record or upload an optional 12-second video greeting directly from your device.</p></article>
+        <article class="kraft-step"><span class="kraft-step-number">05 / STORY CARDS</span><h3>Choose the keepsake</h3><p>Select a 9:16 story-card template designed for sharing and saving.</p></article>
+        <article class="kraft-step"><span class="kraft-step-number">06 / LAUNCH</span><h3>Share the surprise</h3><p>Review the finished scenes, then generate an instant private celebration link.</p></article>
+      </div>
+    </section>
+
+    <section class="kraft-section">
+      <div class="kraft-section-heading">
+        <h2>Built for<br>real people.</h2>
+        <p class="kraft-section-copy">
+          From a heartfelt dedication to a soundtrack, reel, video greeting, and story card, every part of the
+          experience is designed to feel intentional. No design skills are required, and the recipient can open the
+          finished celebration on any modern device.
+        </p>
+      </div>
+      <div class="kraft-gallery">
+        <figure tabindex="0" role="button" aria-label="Expand KRAFT overview screenshot"><img src="assets/images/kraft/01-overview.png" alt="KRAFT home and three-step creation overview"><figcaption>01 / Create the experience</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Expand KRAFT dedication screenshot"><img src="assets/images/kraft/02-dedication.png" alt="KRAFT dedication and portrait photo step"><figcaption>02 / Dedication and photo</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Expand KRAFT soundtrack screenshot"><img src="assets/images/kraft/03-soundtrack.png" alt="KRAFT soundtrack selection step"><figcaption>03 / Acoustic soundtrack</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Expand KRAFT reel screenshot"><img src="assets/images/kraft/04-reel.png" alt="KRAFT spotlight reel selection step"><figcaption>04 / Spotlight reel</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Expand KRAFT video screenshot"><img src="assets/images/kraft/05-video.png" alt="KRAFT optional video greeting step"><figcaption>05 / Personal video</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Expand KRAFT story cards screenshot"><img src="assets/images/kraft/06-story-cards.png" alt="KRAFT story card template selection step"><figcaption>06 / Story card templates</figcaption></figure>
+        <figure tabindex="0" role="button" aria-label="Expand KRAFT launch screenshot"><img src="assets/images/kraft/07-launch.png" alt="KRAFT review and launch step"><figcaption>07 / Review and launch</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="kraft-section kraft-final">
+      <div>
+        <div class="kraft-kicker">READY WHEN YOU ARE</div>
+        <h2>Give them<br>more than a message.</h2>
+      </div>
+      <a class="kraft-button" href="http://wishsomeoneclosetoyou.netlify.app/" target="_blank"
+        rel="noopener noreferrer">Open WishSomeoneCloseToYou &rarr;</a>
+    </section>
+  </main>
+  <div class="kraft-lightbox" id="kraft-lightbox" role="dialog" aria-modal="true" aria-label="Expanded KRAFT screenshot">
+    <button class="kraft-lightbox-close" type="button" aria-label="Close expanded image">CLOSE</button>
+    <img class="kraft-lightbox-image" id="kraft-lightbox-image" alt="">
+    <div class="kraft-lightbox-caption" id="kraft-lightbox-caption"></div>
+  </div>
+  <script>
+    (() => {
+      const lightbox = document.getElementById('kraft-lightbox');
+      const lightboxImage = document.getElementById('kraft-lightbox-image');
+      const caption = document.getElementById('kraft-lightbox-caption');
+      const closeButton = lightbox.querySelector('.kraft-lightbox-close');
+      const galleryItems = document.querySelectorAll('.kraft-gallery figure');
+      const updateStackVisibility = () => {
+        const stackLine = Math.max(88, Math.min(window.innerHeight * 0.18, 140));
+        galleryItems.forEach((item, index) => {
+          if (index === 0) {
+            item.classList.remove('kraft-stack-hidden');
+            return;
+          }
+          item.classList.toggle('kraft-stack-hidden', item.getBoundingClientRect().top > stackLine);
+        });
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+      };
+
+      const openLightbox = (item) => {
+        const image = item.querySelector('img');
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        caption.textContent = item.querySelector('figcaption').textContent;
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+      };
+
+      galleryItems.forEach((item) => {
+        item.addEventListener('click', () => openLightbox(item));
+        item.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openLightbox(item);
+          }
+        });
+      });
+
+      closeButton.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+      });
+
+      let stackFrame = 0;
+      const scheduleStackUpdate = () => {
+        if (stackFrame) return;
+        stackFrame = requestAnimationFrame(() => {
+          stackFrame = 0;
+          updateStackVisibility();
+        });
+      };
+
+      window.addEventListener('scroll', scheduleStackUpdate, { passive: true });
+      window.addEventListener('resize', scheduleStackUpdate);
+      updateStackVisibility();
+    })();
+  </script>
+</body>
+
+</html>

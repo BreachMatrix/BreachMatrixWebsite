@@ -26,6 +26,13 @@
   --color-border: #27272a;
   --color-border-bright: #3f3f46;
 
+  /* Organic card palette */
+  --card-base: #0a0e17;
+  --card-mid: #10b981;
+  --card-highlight: #10b981;
+  --card-highlight-soft: #f8fafc;
+  --card-text: #94a3b8;
+
   /* Typography Scale */
   --font-display: 'Saira Condensed', -apple-system, sans-serif;
   --font-body: 'Saira', sans-serif;
@@ -735,14 +742,15 @@ body.mode-scroll .view-mode-scroll {
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
   font-family: "Space Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #2E4060;
-  border-radius: 14px;
+  background-color: var(--card-base);
+  background-image: radial-gradient(circle at bottom, rgba(16, 185, 129, 0.14) 0%, transparent 70%);
+  border-radius: 12px;
   cursor: default;
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(16, 185, 129, 0.18);
   transition: border-color 0.4s ease;
 }
 
@@ -770,17 +778,8 @@ body.mode-scroll .view-mode-scroll {
   width: 110%;
   height: 110%;
   translate: -5% -5%;
-  filter: url("#noise");
-  --color-1: #F4DAD4;
-  /* Almond */
-  --color-2: #DD8C96;
-  /* Dull Pink */
-  --color-3: #2E4060;
-  /* Rhino */
-  background: radial-gradient(circle at 50% 100%,
-      var(--color-1) 20%,
-      var(--color-2) 40% 50%,
-      var(--color-3) 55%) no-repeat center / cover;
+  filter: none;
+  background: transparent;
   font-size: 100px;
   pointer-events: none;
   z-index: 0;
@@ -793,7 +792,7 @@ body.mode-scroll .view-mode-scroll {
 .bm-access-card:hover {
   transform: none !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
-  border-color: rgba(221, 140, 150, 0.65);
+  border-color: rgba(16, 185, 129, 0.45);
 }
 
 .bm-pillar-card:hover .card-noise-bg,
@@ -819,9 +818,9 @@ body.mode-scroll .view-mode-scroll {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
-  color: #F4DAD4;
+  color: var(--card-highlight-soft);
   font-weight: 700;
-  text-shadow: 0 1px 4px rgba(46, 64, 96, 0.85);
+  text-shadow: 0 1px 4px rgba(7, 18, 19, 0.85);
 }
 
 .bm-pillar-card h4 {
@@ -829,26 +828,22 @@ body.mode-scroll .view-mode-scroll {
   font-size: 1.35rem;
   font-weight: 700;
   line-height: 1.15;
-  background: linear-gradient(135deg, #DD8C96 0%, #F4DAD4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  color: var(--card-highlight-soft);
   letter-spacing: -0.04em;
-  filter: drop-shadow(0px 4px 12px rgba(46, 64, 96, 0.45));
+  filter: none;
   transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   margin-top: 0;
   margin-bottom: 0.6rem;
 }
 
 .bm-pillar-card:hover h4 {
-  filter: drop-shadow(0px 8px 16px rgba(221, 140, 150, 0.55));
+  filter: none;
   transform: none;
 }
 
 .bm-pillar-card p {
   font-family: "Space Grotesk", sans-serif;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--card-text);
   font-size: 0.92rem;
   font-weight: 400;
   line-height: 1.6;
@@ -947,25 +942,21 @@ body.mode-scroll .view-mode-scroll {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.14em;
-  color: #F4DAD4;
+  color: var(--card-highlight-soft);
   text-transform: uppercase;
   margin-bottom: 0.75rem;
   font-weight: 700;
-  text-shadow: 0 1px 4px rgba(46, 64, 96, 0.85);
+  text-shadow: 0 1px 4px rgba(7, 18, 19, 0.85);
 }
 
 .bm-principle-card h4 {
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.28rem;
   font-weight: 700;
-  color: transparent;
+  color: var(--card-highlight-soft);
   line-height: 1.15;
-  background: linear-gradient(135deg, #DD8C96 0%, #F4DAD4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   letter-spacing: -0.04em;
-  filter: drop-shadow(0px 4px 12px rgba(46, 64, 96, 0.45));
+  filter: none;
   transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   text-transform: uppercase;
   margin-top: 0;
@@ -973,14 +964,14 @@ body.mode-scroll .view-mode-scroll {
 }
 
 .bm-principle-card:hover h4 {
-  filter: drop-shadow(0px 8px 16px rgba(221, 140, 150, 0.55));
+  filter: none;
   transform: none;
 }
 
 .bm-principle-role {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.78rem;
-  color: #F4DAD4;
+  color: var(--card-highlight-soft);
   font-weight: 600;
   margin-bottom: 0.9rem;
   letter-spacing: 0.02em;
@@ -989,7 +980,7 @@ body.mode-scroll .view-mode-scroll {
 
 .bm-principle-card p {
   font-family: "Space Grotesk", sans-serif;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--card-text);
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -1064,8 +1055,8 @@ body.mode-scroll .view-mode-scroll {
 }
 
 .bm-roadmap-card.card-flagship {
-  border-color: rgba(221, 140, 150, 0.75);
-  box-shadow: 0 12px 36px rgba(46, 64, 96, 0.4), 0 0 20px rgba(221, 140, 150, 0.25);
+  border-color: rgba(16, 185, 129, 0.55);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), 0 0 20px rgba(16, 185, 129, 0.18);
 }
 
 .bm-status-pill {
@@ -1081,55 +1072,51 @@ body.mode-scroll .view-mode-scroll {
   border-radius: 999px;
   margin-bottom: 1.25rem;
   text-transform: uppercase;
-  background: rgba(46, 64, 96, 0.4);
-  border: 1px solid rgba(221, 140, 150, 0.45);
-  color: #F4DAD4;
+  background: rgba(10, 14, 23, 0.65);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  color: var(--card-highlight-soft);
 }
 
 .pill-live {
-  background: rgba(221, 140, 150, 0.32);
-  color: #F4DAD4;
-  border-color: rgba(221, 140, 150, 0.75);
+  background: rgba(16, 185, 129, 0.14);
+  color: var(--card-highlight-soft);
+  border-color: rgba(16, 185, 129, 0.45);
 }
 
 .pill-dev {
-  background: rgba(244, 218, 212, 0.22);
-  color: #F4DAD4;
-  border-color: rgba(244, 218, 212, 0.6);
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--card-highlight-soft);
+  border-color: rgba(148, 163, 184, 0.35);
 }
 
 .pill-works {
-  background: rgba(46, 64, 96, 0.65);
-  color: #F4DAD4;
-  border-color: rgba(221, 140, 150, 0.5);
+  background: rgba(10, 14, 23, 0.8);
+  color: var(--card-highlight-soft);
+  border-color: rgba(16, 185, 129, 0.35);
 }
 
 .bm-roadmap-card h3 {
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.55rem;
   font-weight: 700;
-  color: transparent;
+  color: var(--card-highlight-soft);
   line-height: 1.15;
-  background: linear-gradient(135deg, #DD8C96 0%, #F4DAD4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   letter-spacing: -0.04em;
-  filter: drop-shadow(0px 4px 12px rgba(46, 64, 96, 0.45));
+  filter: none;
   transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   margin-top: 0;
   margin-bottom: 0.4rem;
 }
 
 .bm-roadmap-card:hover h3 {
-  filter: drop-shadow(0px 8px 16px rgba(221, 140, 150, 0.55));
+  filter: none;
   transform: none;
 }
 
 .bm-card-sub {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.8rem;
-  color: #F4DAD4;
+  color: var(--card-highlight-soft);
   font-weight: 600;
   margin-bottom: 1rem;
   letter-spacing: 0.02em;
@@ -1138,7 +1125,7 @@ body.mode-scroll .view-mode-scroll {
 
 .bm-roadmap-card p {
   font-family: "Space Grotesk", sans-serif;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--card-text);
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -1159,18 +1146,19 @@ body.mode-scroll .view-mode-scroll {
   gap: 0.5rem;
   margin-bottom: 1.75rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(221, 140, 150, 0.3);
+  border-top: 1px solid rgba(16, 185, 129, 0.22);
 }
 
 .bm-spec-chip {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: #2E4060;
-  background: rgba(244, 218, 212, 0.9);
-  border: 1px solid rgba(221, 140, 150, 0.5);
+  color: #f8fafc;
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(16, 185, 129, 0.38);
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
   font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 .bm-card-action-btn {
@@ -1178,8 +1166,8 @@ body.mode-scroll .view-mode-scroll {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #2E4060 0%, #1e2c44 100%);
-  color: #F4DAD4 !important;
+  background: #0a0e17;
+  color: var(--card-highlight-soft) !important;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 700;
@@ -1188,16 +1176,16 @@ body.mode-scroll .view-mode-scroll {
   border-radius: 6px;
   text-decoration: none;
   text-transform: uppercase;
-  border: 1px solid rgba(221, 140, 150, 0.45);
-  box-shadow: 0 4px 16px rgba(46, 64, 96, 0.45);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   align-self: flex-start;
 }
 
 .bm-card-action-btn:hover {
-  background: linear-gradient(135deg, #DD8C96 0%, #c97983 100%);
-  color: #2E4060 !important;
-  box-shadow: 0 8px 24px rgba(221, 140, 150, 0.55);
+  background: rgba(16, 185, 129, 0.18);
+  color: var(--card-highlight-soft) !important;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
   transform: none;
 }
 
@@ -1418,25 +1406,25 @@ body.mode-scroll .view-mode-scroll {
 }
 
 .bm-access-card.accent-card {
-  border-color: rgba(221, 140, 150, 0.75);
-  box-shadow: 0 12px 36px rgba(46, 64, 96, 0.4);
+  border-color: rgba(16, 185, 129, 0.55);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
 }
 
 .bm-access-icon {
   font-size: 1.6rem;
   margin-bottom: 0.25rem;
-  color: #DD8C96;
-  filter: drop-shadow(0 2px 8px rgba(221, 140, 150, 0.4));
+  color: var(--card-highlight);
+  filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.35));
 }
 
 .bm-access-label {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
-  color: #F4DAD4;
+  color: var(--card-highlight-soft);
   text-transform: uppercase;
   font-weight: 700;
-  text-shadow: 0 1px 4px rgba(46, 64, 96, 0.85);
+  text-shadow: 0 1px 4px rgba(7, 18, 19, 0.85);
 }
 
 .bm-access-val {
@@ -1448,26 +1436,22 @@ body.mode-scroll .view-mode-scroll {
 }
 
 .bm-access-val a {
-  background: linear-gradient(135deg, #DD8C96 0%, #F4DAD4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  color: var(--card-highlight-soft);
   text-decoration: none;
-  filter: drop-shadow(0px 4px 12px rgba(46, 64, 96, 0.45));
+  filter: none;
   transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   display: inline-block;
 }
 
 .bm-access-card:hover .bm-access-val a,
 .bm-access-val a:hover {
-  filter: drop-shadow(0px 8px 16px rgba(221, 140, 150, 0.55));
+  filter: none;
   transform: none;
 }
 
 .bm-access-desc {
   font-family: "Space Grotesk", sans-serif;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--card-text);
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -1487,9 +1471,9 @@ body.mode-scroll .view-mode-scroll {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #2E4060 0%, #1e2c44 100%);
-  color: #F4DAD4 !important;
-  border: 1px solid rgba(221, 140, 150, 0.45);
+  background: #0a0e17;
+  color: var(--card-highlight-soft) !important;
+  border: 1px solid rgba(16, 185, 129, 0.28);
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 700;
@@ -1498,15 +1482,15 @@ body.mode-scroll .view-mode-scroll {
   border-radius: 6px;
   cursor: pointer;
   text-transform: uppercase;
-  box-shadow: 0 4px 16px rgba(46, 64, 96, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   align-self: flex-start;
 }
 
 .bm-transmit-btn:hover {
-  background: linear-gradient(135deg, #DD8C96 0%, #c97983 100%);
-  color: #2E4060 !important;
-  box-shadow: 0 8px 24px rgba(221, 140, 150, 0.55);
+  background: rgba(16, 185, 129, 0.18);
+  color: var(--card-highlight-soft) !important;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
   transform: none;
 }
 
@@ -4594,6 +4578,34 @@ body.menu-open-scroll-lock {
 
 .reveal-paragraph:last-child {
   margin-bottom: 0;
+}
+
+.reveal-feature-list {
+  padding-left: 1.5rem;
+}
+
+.reveal-feature-list li {
+  padding-left: 0.35rem;
+  margin-bottom: 0.8rem;
+}
+
+.reveal-feature-list li:last-child {
+  margin-bottom: 0;
+}
+
+.reveal-product-title {
+  text-transform: none;
+}
+
+.reveal-kraft-link {
+  color: var(--color-lime);
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .reveal-wide-container {
