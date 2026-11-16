@@ -649,7 +649,7 @@ body.mode-scroll .view-mode-scroll {
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr;
   gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
 }
@@ -746,11 +746,12 @@ body.mode-scroll .view-mode-scroll {
   font-family: "Space Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--card-base);
-  background-image: radial-gradient(circle at bottom, rgba(16, 185, 129, 0.14) 0%, transparent 70%);
-  border-radius: 12px;
+  background-color: #0e0e12;
+  background-image: none;
+  border-radius: 6px;
   cursor: default;
-  border: 1px solid rgba(16, 185, 129, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
   transition: border-color 0.4s ease;
 }
 
@@ -933,27 +934,27 @@ body.mode-scroll .view-mode-scroll {
 
 /* 2. WHO WE ARE: Principle Cards Specifics */
 .bm-principle-card {
-  padding: 1.85rem 1.6rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  border-radius: 6px;
 }
 
 .bm-principle-tag {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.14em;
-  color: var(--card-highlight-soft);
+  color: var(--color-lime);
   text-transform: uppercase;
   margin-bottom: 0.75rem;
   font-weight: 700;
-  text-shadow: 0 1px 4px rgba(7, 18, 19, 0.85);
 }
 
 .bm-principle-card h4 {
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.28rem;
   font-weight: 700;
-  color: var(--card-highlight-soft);
+  color: #ffffff;
   line-height: 1.15;
   letter-spacing: -0.04em;
   filter: none;
@@ -971,7 +972,7 @@ body.mode-scroll .view-mode-scroll {
 .bm-principle-role {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.78rem;
-  color: var(--card-highlight-soft);
+  color: #d4d4d8;
   font-weight: 600;
   margin-bottom: 0.9rem;
   letter-spacing: 0.02em;
@@ -980,12 +981,11 @@ body.mode-scroll .view-mode-scroll {
 
 .bm-principle-card p {
   font-family: "Space Grotesk", sans-serif;
-  color: var(--card-text);
+  color: #a1a1aa;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0.04em;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   margin: 0;
 }
 
@@ -1055,8 +1055,13 @@ body.mode-scroll .view-mode-scroll {
 }
 
 .bm-roadmap-card.card-flagship {
-  border-color: rgba(16, 185, 129, 0.55);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), 0 0 20px rgba(16, 185, 129, 0.18);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+.bm-roadmap-card.card-flagship:hover,
+.bm-roadmap-card.card-flagship:focus-within {
+  border-color: rgba(16, 185, 129, 0.45);
 }
 
 .bm-status-pill {

@@ -4,11 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KRAFT — WishSomeoneCloseToYou | BREACHMATRIX</title>
+  <title>KRAFT — A Remarkable Surprise | BREACHMATRIX</title>
   <meta name="description"
-    content="Explore WishSomeoneCloseToYou, KRAFT's personalized birthday experience for creating private, animated celebration websites in minutes.">
+    content="Explore Kraft — A Remarkable Surprise, KRAFT's personalized birthday experience for creating private, animated celebration websites in minutes.">
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0c'/><circle cx='50' cy='50' r='30' fill='%23d4ff00'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     .kraft-page {
@@ -321,6 +326,304 @@
       }
     }
   </style>
+  <style>
+    /* KRAFT product UI: match the live app's light, rounded visual system. */
+    .kraft-page {
+      --kraft-bg: #fffdfa;
+      --kraft-surface: #ffffff;
+      --kraft-soft: #f8fafc;
+      --kraft-ink: #0f172a;
+      --kraft-body: #475569;
+      --kraft-muted: #64748b;
+      --kraft-border: #e2e8f0;
+      --kraft-pink: #f43f5e;
+      --kraft-pink-dark: #be123c;
+      background: var(--kraft-bg);
+      color: var(--kraft-ink);
+      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+    }
+
+    .kraft-nav {
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+      max-width: none;
+      padding: 0.8rem clamp(1.25rem, 3.5vw, 2.5rem);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .kraft-brand {
+      color: var(--kraft-ink);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(0.95rem, 2.6vw, 1.18rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: none;
+    }
+
+    .kraft-nav-links {
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .kraft-nav-links a,
+    .kraft-button,
+    .kraft-outline-button {
+      border-radius: 999px;
+      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      padding: 0.75rem 1.15rem;
+      text-transform: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .kraft-nav-links a:first-child,
+    .kraft-outline-button {
+      background: var(--kraft-surface);
+      border: 1px solid var(--kraft-border);
+      color: var(--kraft-ink);
+    }
+
+    .kraft-nav-links a:first-child:hover,
+    .kraft-outline-button:hover {
+      border-color: #fecdd3;
+      color: var(--kraft-pink-dark);
+      transform: translateY(-2px);
+    }
+
+    .kraft-button {
+      background: linear-gradient(135deg, #ff4370, var(--kraft-pink-dark));
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 8px 20px rgba(244, 63, 94, 0.35);
+      color: #ffffff;
+    }
+
+    .kraft-button:hover {
+      box-shadow: 0 12px 28px rgba(244, 63, 94, 0.45);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .kraft-nav-links .kraft-button {
+      color: #ffffff;
+    }
+
+    .kraft-hero,
+    .kraft-section {
+      max-width: 1180px;
+      padding: clamp(3.5rem, 8vw, 7rem) clamp(1.25rem, 3.5vw, 2.5rem);
+    }
+
+    .kraft-hero {
+      background:
+        radial-gradient(circle at 90% 10%, rgba(251, 207, 232, 0.28), transparent 34rem),
+        var(--kraft-bg);
+    }
+
+    .kraft-kicker {
+      align-items: center;
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-radius: 999px;
+      color: var(--kraft-pink-dark);
+      display: inline-flex;
+      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      padding: 0.45rem 0.9rem;
+      text-transform: none;
+    }
+
+    .kraft-hero h1,
+    .kraft-section h2 {
+      color: var(--kraft-ink);
+      font-family: "Outfit", sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      text-transform: none;
+    }
+
+    .kraft-hero h1 {
+      font-size: clamp(2.6rem, 7vw, 5.8rem);
+      line-height: 1.05;
+      margin: 1.25rem 0 1.5rem;
+      max-width: 880px;
+    }
+
+    .kraft-hero h1 span {
+      background: linear-gradient(135deg, #ff4370, #9333ea);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .kraft-lead,
+    .kraft-section-copy {
+      color: var(--kraft-body);
+      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      line-height: 1.7;
+    }
+
+    .kraft-hero-actions {
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .kraft-section {
+      border-top: 0;
+    }
+
+    .kraft-section-heading {
+      margin-bottom: 2.5rem;
+    }
+
+    .kraft-section h2 {
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      line-height: 1.05;
+    }
+
+    .kraft-steps {
+      gap: 1rem;
+    }
+
+    .kraft-step {
+      background: var(--kraft-surface);
+      border: 1px solid var(--kraft-border);
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      padding: 1.5rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .kraft-step:hover {
+      border-color: #fecdd3;
+      box-shadow: 0 16px 30px rgba(244, 63, 94, 0.12);
+      transform: translateY(-3px);
+    }
+
+    .kraft-step-number {
+      color: var(--kraft-pink);
+      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .kraft-step h3 {
+      color: var(--kraft-ink);
+      font-family: "Outfit", sans-serif;
+      font-size: 1.2rem;
+      margin: 1.25rem 0 0.7rem;
+    }
+
+    .kraft-step p,
+    .kraft-gallery figcaption {
+      color: var(--kraft-body);
+      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+    }
+
+    .kraft-gallery figure {
+      background: var(--kraft-surface);
+      border: 1px solid var(--kraft-border);
+      border-radius: 1.25rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
+      padding: 0.6rem;
+    }
+
+    .kraft-gallery figure:hover {
+      border-color: #fecdd3;
+      box-shadow: 0 24px 48px rgba(244, 63, 94, 0.16);
+    }
+
+    .kraft-gallery figcaption {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.8rem 0.4rem 0.3rem;
+      text-transform: none;
+    }
+
+    .kraft-final {
+      background: linear-gradient(135deg, #fff1f2, #fdf4ff);
+      border: 1px solid #fecdd3;
+      border-radius: 1.5rem;
+      margin-bottom: 4rem;
+      padding: clamp(2rem, 5vw, 4rem);
+    }
+
+    .kraft-lightbox {
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .kraft-lightbox-image {
+      border-color: #fda4af;
+      border-radius: 1rem;
+    }
+
+    .kraft-lightbox-close {
+      background: #ffffff;
+      border-color: #fecdd3;
+      border-radius: 999px;
+      color: var(--kraft-ink);
+      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+      font-weight: 700;
+    }
+
+    .kraft-lightbox-caption {
+      color: #ffffff;
+      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+      text-transform: none;
+    }
+
+    @media (max-width: 768px) {
+      .kraft-nav {
+        padding-bottom: 0.7rem;
+        padding-top: 0.7rem;
+      }
+
+      .kraft-brand {
+        max-width: 58vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .kraft-nav-links a:first-child {
+        display: none;
+      }
+
+      .kraft-hero,
+      .kraft-section {
+        padding-bottom: 3.5rem;
+        padding-top: 3.5rem;
+      }
+
+      .kraft-hero h1 {
+        font-size: clamp(2.5rem, 13vw, 4.2rem);
+      }
+
+      .kraft-hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .kraft-hero-actions a {
+        text-align: center;
+      }
+
+      .kraft-final {
+        margin: 0 1.25rem 2rem;
+      }
+    }
+  </style>
 </head>
 
 <body class="kraft-page">
@@ -335,10 +638,10 @@
 
   <main>
     <section class="kraft-hero">
-      <div class="kraft-kicker">KRAFT / WISHSOMEONECLOSETOYOU</div>
+      <div class="kraft-kicker">KRAFT / A REMARKABLE SURPRISE</div>
       <h1>Make a moment<br><span>worth sharing.</span></h1>
       <p class="kraft-lead">
-        WishSomeoneCloseToYou turns a birthday message into a private, interactive celebration website.
+        Kraft — A Remarkable Surprise turns a birthday message into a private, interactive celebration website.
         Choose a visual style, add personal memories, record a message, and share one beautiful link with someone special.
       </p>
       <div class="kraft-hero-actions">
@@ -392,7 +695,7 @@
         <h2>Give them<br>more than a message.</h2>
       </div>
       <a class="kraft-button" href="http://wishsomeoneclosetoyou.netlify.app/" target="_blank"
-        rel="noopener noreferrer">Open WishSomeoneCloseToYou &rarr;</a>
+        rel="noopener noreferrer">Open Kraft &mdash; A Remarkable Surprise &rarr;</a>
     </section>
   </main>
   <div class="kraft-lightbox" id="kraft-lightbox" role="dialog" aria-modal="true" aria-label="Expanded KRAFT screenshot">
